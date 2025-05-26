@@ -6,9 +6,24 @@
 </head>
 <body>
     <h1>Dashboard</h1>
+    <div class="header"></div>
+
+        <div class="nav" th:if="${user.role}=='Admin'">
+            <a href="#">User List</a> |
+            <a href="#">Report</a> |
+            <a href="#">Logout</a> |
+        </div>
+
+        <div class="nav" th:if="${user.role}=='Guest'">
+            <a href="#">Create Contact</a> |
+            <a href="#">List Contact</a> |
+            <a href="#">Logout</a> |
+        </div>
+
     <div>
-        <p th:text="${userName}"></p>
-        <p th:text="${role}"></p>
+        <p>Nome: <span th:text="${user.name}"></span></p>
+        <p>Email: <span th:text="${user.email}"></span></p>
+        <p>Role: <span th:text="${user.role}"></span></p>
     </div>
 </body>
 </html>

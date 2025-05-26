@@ -12,4 +12,9 @@ public class PageController {
         model.addAttribute("id", 1);
         return "link-expression";
     }
+
+    @GetMapping("/fragment-expression")
+    public String fragmenteExpressionDemo(){
+        return "fragment-expression";
+    }
 }

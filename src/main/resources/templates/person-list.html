@@ -9,6 +9,7 @@
     <table>
         <thead>
         <tr>
+            <th>Sr.No</th>
             <th>ID</th>
             <th>Nome</th>
             <th>Email</th>
@@ -17,7 +18,8 @@
         </tr>
         </thead>
         <tbody>
-            <tr th:each="person:${persons}">
+            <tr th:each="person, personStat:${persons}">
+                <td th:text="${personStat.count}"></td>
                 <td th:text="${person.id}"></td>
                 <td th:text="${person.name}"></td>
                 <td th:text="${person.email}"></td>

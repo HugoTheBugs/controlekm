@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1 class="red-heading">Link Expression Demo</h1>
+    <table border="1">
+        <thead>
+        <tr>
+            <td>Nome</td>
+            <td>Contato</td>
+            <td>Ação</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Hugo</td>
+            <td>18988025850</td>
+            <td><a th:href="@{editUser/{id}(id=${id})}">Editar</a></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

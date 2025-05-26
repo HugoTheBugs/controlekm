@@ -14,4 +14,9 @@ public class UserController {
         model.addAttribute("role", "Admin");
         return "dashboard";
     }
+
+    @GetMapping("/message-expression")
+    public String showMessageExpression(){
+        return "message-expression";
+    }
 }

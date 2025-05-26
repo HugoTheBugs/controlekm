@@ -6,24 +6,36 @@
 </head>
 <body>
     <h1>Dashboard</h1>
-    <div class="header"></div>
+    <div class="header">
 
-        <div class="nav" th:if="${user.role}=='Admin'">
-            <a href="#">User List</a> |
-            <a href="#">Report</a> |
-            <a href="#">Logout</a> |
+        <div class="nav" th:switch="${user.role}">
+            <div class="nav-options" th:case="'Admin'">
+                <a href="#">User List</a> |
+                <a href="#">Report</a> |
+                <a href="#">Logout</a> |
+            </div>
+
+            <div class="nav-options" th:case="'Guest'">
+                <a href="#">Create Contact</a> |
+                <a href="#">List Contact</a> |
+                <a href="#">Logout</a> |
+            </div>
+
+            <div class="nav-options" th:case="*">
+                <a href="#">Login</a> |
+                <a href="#">Registration</a>
+            </div>
+
         </div>
 
-        <div class="nav" th:if="${user.role}=='Guest'">
-            <a href="#">Create Contact</a> |
-            <a href="#">List Contact</a> |
-            <a href="#">Logout</a> |
+    </div>
+    <div th:unless="${user.role}=='Admin'">
+        <h2>Bem-vindo: seus detalhes abaixo: </h2>
+        <div>
+            <p>Nome: <span th:text="${user.name}"></span></p>
+            <p>Email: <span th:text="${user.email}"></span></p>
+            <p>Role: <span th:text="${user.role}"></span></p>
         </div>
-
-    <div>
-        <p>Nome: <span th:text="${user.name}"></span></p>
-        <p>Email: <span th:text="${user.email}"></span></p>
-        <p>Role: <span th:text="${user.role}"></span></p>
     </div>
 </body>
 </html>

@@ -24,7 +24,7 @@ public class UserController {
     @GetMapping("/dashboard")
     public String showDashboard(Model model){
 //        User adminUser = new User(1, "Hugo Ferreira", "hugo@fema.edu.br", "Admin");
-        User guestUser = new User(1, "Hugo Ferreira", "hugo@fema.edu.br", "Guest");
+        User guestUser = new User(1, "Hugo Ferreira", "hugo@fema.edu.br", "Unknown");
         model.addAttribute("user", guestUser);
         return "dashboard";
     }

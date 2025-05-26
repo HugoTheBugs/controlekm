@@ -21,4 +21,11 @@ public class PersonController {
         model.addAttribute("persons", persons);
         return "person-list";
     }
+
+    @GetMapping("/profile")
+    public String showPersonProfile(Model model){
+        Person person = new Person(1, "Hugo", "hugo@fema.edu.br", "18988025850");
+        model.addAttribute("person", person);
+        return "person-profile";
+    }
 }
